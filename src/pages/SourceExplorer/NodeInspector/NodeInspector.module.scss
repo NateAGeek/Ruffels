@@ -1,0 +1,85 @@
+@use "../../../styles/tokens" as *;
+
+.nodeInspector {
+  height: 100%;
+  overflow: auto;
+  padding: $spacingMedium;
+  color: $colorText;
+  background: $colorSurface;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacingSmall;
+  padding-bottom: $spacingMedium;
+  border-bottom: 1px solid $colorBorder;
+
+  span {
+    color: $colorAccent;
+    font-family: $fontMono;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin: $spacingExtraSmall 0 0;
+    overflow-wrap: anywhere;
+    font-size: 18px;
+  }
+
+  button {
+    width: 30px;
+    height: 30px;
+    border: 1px solid $colorBorder;
+    border-radius: $radiusSmall;
+    color: $colorText;
+    background: $colorCanvas;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $colorAccent;
+      color: $colorAccent;
+    }
+  }
+}
+
+.properties {
+  display: grid;
+  gap: $spacingSmall;
+  margin: $spacingMedium 0;
+
+  div {
+    display: grid;
+    grid-template-columns: minmax(88px, 0.8fr) minmax(0, 1.2fr);
+    gap: $spacingSmall;
+    padding-bottom: $spacingSmall;
+    border-bottom: 1px solid rgb(40 57 81 / 55%);
+  }
+
+  dt {
+    color: $colorMuted;
+    font-size: 12px;
+  }
+
+  dd {
+    margin: 0;
+    overflow-wrap: anywhere;
+    font-family: $fontMono;
+    font-size: 12px;
+  }
+}
+
+.nodeId {
+  display: grid;
+  gap: $spacingExtraSmall;
+  color: $colorMuted;
+  font-size: 11px;
+
+  code {
+    overflow-wrap: anywhere;
+    color: $colorText;
+  }
+}

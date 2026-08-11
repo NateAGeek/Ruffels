@@ -1,0 +1,35 @@
+$colorBackground: #09111f;
+$colorSurface: #111c2e;
+$colorCanvas: #0c1626;
+$colorText: #e7edf7;
+$colorMuted: #8fa0b8;
+$colorBorder: #283951;
+$colorAccent: #62d6c8;
+$colorAccentStrong: #2bb8aa;
+$colorFile: #79a8ff;
+$colorFileSurface: #14284a;
+$colorComponent: #a78bfa;
+$colorComponentSurface: #241d42;
+$colorDeclaration: #5f7390;
+$colorJsx: #4fd1a1;
+$colorJsxSurface: #132f2b;
+$colorExpression: #f2b66d;
+$colorExpressionSurface: #382a19;
+$colorError: #ff7f8b;
+$colorErrorSurface: #341c25;
+
+$spacingExtraSmall: 4px;
+$spacingSmall: 8px;
+$spacingMedium: 16px;
+$spacingLarge: 24px;
+$spacingExtraLarge: 32px;
+
+$radiusSmall: 6px;
+$radiusMedium: 10px;
+$radiusLarge: 16px;
+
+$shadowSmall: 0 8px 24px rgb(0 0 0 / 18%);
+$shadowInset: inset 0 1px 0 rgb(255 255 255 / 3%);
+
+$fontSans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$fontMono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;

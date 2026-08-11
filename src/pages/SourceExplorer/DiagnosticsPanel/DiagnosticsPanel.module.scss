@@ -1,0 +1,29 @@
+@use "../../../styles/tokens" as *;
+
+.diagnosticsPanel {
+  padding: $spacingMedium;
+  border: 1px solid $colorError;
+  border-radius: $radiusMedium;
+  background: $colorErrorSurface;
+
+  h2 {
+    margin: 0 0 $spacingSmall;
+    font-size: 15px;
+  }
+
+  ul {
+    margin: 0;
+    padding-left: $spacingLarge;
+  }
+
+  li {
+    margin-top: $spacingExtraSmall;
+    font-size: 13px;
+
+    span {
+      margin-right: $spacingSmall;
+      color: $colorError;
+      font-family: $fontMono;
+    }
+  }
+}

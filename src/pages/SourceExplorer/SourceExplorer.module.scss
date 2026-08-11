@@ -1,0 +1,161 @@
+@use "../../styles/tokens" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/breakpoints" as *;
+
+.sourceExplorer {
+  @include flexColumn;
+  min-height: 100vh;
+  gap: $spacingLarge;
+  padding: $spacingMedium;
+  background:
+    radial-gradient(circle at 12% 0%, rgb(79 209 161 / 10%), transparent 30%),
+    $colorBackground;
+
+  .header {
+    @include flexColumn;
+    gap: $spacingMedium;
+
+    h1 {
+      margin: $spacingExtraSmall 0;
+      font-size: clamp(28px, 5vw, 44px);
+      letter-spacing: -0.04em;
+    }
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: $colorAccent;
+    font-family: $fontMono;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .description {
+    max-width: 640px;
+    margin: 0;
+    color: $colorMuted;
+  }
+
+  .openButton {
+    align-self: flex-start;
+    padding: 11px $spacingMedium;
+    border: 1px solid $colorAccent;
+    border-radius: $radiusMedium;
+    color: #061714;
+    background: $colorAccent;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 140ms ease, transform 140ms ease;
+
+    &:hover:not(:disabled) {
+      background: $colorAccentStrong;
+      transform: translateY(-1px);
+    }
+
+    &:focus-visible {
+      outline: 3px solid rgb(98 214 200 / 35%);
+      outline-offset: 3px;
+    }
+
+    &:disabled {
+      cursor: wait;
+      opacity: 0.65;
+    }
+  }
+
+  .emptyState,
+  .statusState,
+  .errorState {
+    @include centeredContent;
+    @include flexColumn;
+    min-height: 420px;
+    padding: $spacingExtraLarge;
+    border: 1px dashed $colorBorder;
+    border-radius: $radiusLarge;
+    color: $colorMuted;
+    text-align: center;
+
+    h2 {
+      margin: $spacingMedium 0 $spacingExtraSmall;
+      color: $colorText;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .emptyGlyph {
+    color: $colorAccent;
+    font-family: $fontMono;
+    font-size: 34px;
+  }
+
+  .errorState {
+    border-color: $colorError;
+    background: $colorErrorSurface;
+  }
+
+  .workspace {
+    @include flexColumn;
+    min-height: 640px;
+    flex: 1;
+    min-width: 0;
+    width: 100%;
+    gap: $spacingMedium;
+  }
+
+  .fileSummary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacingMedium;
+    color: $colorMuted;
+
+    div {
+      display: flex;
+      align-items: center;
+      min-width: 0;
+      gap: $spacingSmall;
+    }
+
+    h2 {
+      overflow: hidden;
+      margin: 0;
+      color: $colorText;
+      font-family: $fontMono;
+      font-size: 15px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .fileType {
+    padding: 2px 7px;
+    border-radius: $radiusSmall;
+    color: $colorAccent;
+    background: rgb(98 214 200 / 10%);
+    font-family: $fontMono;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  @include tablet {
+    padding: $spacingLarge;
+
+    .header {
+      flex-direction: row;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .openButton {
+      flex-shrink: 0;
+    }
+  }
+
+  @include desktop {
+    padding: $spacingExtraLarge;
+  }
+}

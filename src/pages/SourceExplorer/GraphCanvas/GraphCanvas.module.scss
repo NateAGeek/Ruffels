@@ -1,0 +1,85 @@
+@use "../../../styles/tokens" as *;
+
+.graphCanvas {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  min-width: 0;
+  width: 100%;
+  height: clamp(480px, calc(100vh - 260px), 760px);
+  overflow: hidden;
+  border: 1px solid $colorBorder;
+  border-radius: $radiusLarge;
+  background: $colorCanvas;
+  box-shadow: $shadowInset;
+
+  --focus-border: #{$colorAccent};
+  --separator-border: #{$colorBorder};
+  --sash-hover-size: 6px;
+
+  :global(.sash-container) {
+    z-index: 10;
+  }
+
+  :global(.react-flow__edge-path) {
+    stroke-width: 1.5;
+  }
+
+  :global(.renderEdge .react-flow__edge-path) {
+    stroke: $colorAccent;
+  }
+
+  :global(.containsEdge .react-flow__edge-path) {
+    stroke: $colorMuted;
+  }
+
+  :global(.importEdge .react-flow__edge-path) {
+    stroke: $colorFile;
+    stroke-dasharray: 7 5;
+  }
+
+  :global(.react-flow__controls) {
+    overflow: hidden;
+    border: 1px solid $colorBorder;
+    border-radius: $radiusMedium;
+    box-shadow: $shadowSmall;
+  }
+
+  :global(.react-flow__controls-button) {
+    border-bottom-color: $colorBorder;
+    color: $colorText;
+    background: $colorSurface;
+
+    &:hover {
+      color: $colorAccent;
+      background: $colorFileSurface;
+    }
+
+    svg {
+      fill: currentColor;
+    }
+  }
+
+  :global(.react-flow__node.selected) {
+    article {
+      outline: 2px solid $colorAccent;
+      outline-offset: 3px;
+    }
+  }
+}
+
+.flowCanvas {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: $colorCanvas;
+}
+
+.preparingCanvas {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: $colorMuted;
+}

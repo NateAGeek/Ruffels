@@ -1,0 +1,2 @@
+# Goal: Git Intergration
+We need to be able to utilize the git system in our projects. This will be really useful for viewing the relation of code and the diff that is being created by code that has not been commited.
