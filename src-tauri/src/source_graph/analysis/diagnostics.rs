@@ -27,5 +27,6 @@ pub(super) fn source_diagnostic(
         severity: DiagnosticSeverity::Error,
         message,
         span,
+        source_path: None,
     }
 }

@@ -31,5 +31,12 @@ $radiusLarge: 16px;
 $shadowSmall: 0 8px 24px rgb(0 0 0 / 18%);
 $shadowInset: inset 0 1px 0 rgb(255 255 255 / 3%);
 
-$fontSans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+$fontSans:
+  Inter,
+  ui-sans-serif,
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  sans-serif;
 $fontMono: "Cascadia Code", "SFMono-Regular", Consolas, monospace;

@@ -72,6 +72,35 @@
   }
 }
 
+.locationActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacingExtraSmall;
+
+  button {
+    padding: 3px 7px;
+    border: 1px solid $colorBorder;
+    border-radius: $radiusSmall;
+    color: $colorAccent;
+    background: $colorCanvas;
+    font: inherit;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      border-color: $colorAccent;
+    }
+    &:disabled {
+      cursor: wait;
+      opacity: 0.6;
+    }
+  }
+}
+
+.openError {
+  color: $colorError;
+  font-size: 12px;
+}
+
 .nodeId {
   display: grid;
   gap: $spacingExtraSmall;

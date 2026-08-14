@@ -1,10 +1,9 @@
+mod ast_kind;
 mod classification;
 mod diagnostics;
-mod orchestrator;
+pub(crate) mod orchestrator;
 mod projection;
 mod text;
-
-pub use orchestrator::analyze_source_path;
 
 #[cfg(test)]
 mod tests;

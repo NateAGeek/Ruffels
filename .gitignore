@@ -11,6 +11,11 @@ node_modules
 dist
 dist-ssr
 *.local
+.pnpm-store/
+
+# Local Mutagen configuration and generated lock file
+mutagen.yml
+mutagen.yml.lock
 
 # Editor directories and files
 .vscode/*

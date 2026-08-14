@@ -1,5 +1,5 @@
 import type { Edge, Node } from "@xyflow/react";
-import type { SourceNode } from "../SourceExplorer.types";
+import { SourceNode } from "../../pages/SourceExplorer";
 
 export type SourceGraphNodeData = {
   readonly sourceNode: SourceNode;
@@ -7,6 +7,11 @@ export type SourceGraphNodeData = {
 
 export type SourceGraphFlowNode = Node<SourceGraphNodeData, "sourceGraph">;
 export type SourceGraphFlowEdge = Edge<Record<string, never>, "smoothstep">;
+
+export interface GraphNodeTypeOption {
+  readonly astType: SourceNode["astType"];
+  readonly count: number;
+}
 
 export interface LayoutedSourceGraph {
   readonly nodes: ReadonlyArray<SourceGraphFlowNode>;

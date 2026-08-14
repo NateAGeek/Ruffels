@@ -1,0 +1,90 @@
+@use "../../../styles/tokens" as *;
+
+.filePreview {
+  display: flex;
+  height: 100%;
+  min-width: 0;
+  flex-direction: column;
+  color: $colorText;
+  background: $colorSurface;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: $spacingSmall;
+  padding: $spacingMedium;
+  border-bottom: 1px solid $colorBorder;
+
+  span {
+    color: $colorMuted;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    margin: 5px 0 0;
+    overflow: hidden;
+    font-family: $fontMono;
+    font-size: 13px;
+    text-overflow: ellipsis;
+  }
+}
+
+.actions {
+  display: flex;
+  flex: 0 0 auto;
+  gap: $spacingExtraSmall;
+
+  button {
+    padding: 5px 8px;
+    border: 1px solid $colorBorder;
+    border-radius: $radiusSmall;
+    color: $colorText;
+    background: transparent;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      border-color: $colorAccent;
+      color: $colorAccent;
+    }
+
+    &:disabled {
+      cursor: wait;
+      opacity: 0.6;
+    }
+  }
+}
+
+.code {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: auto;
+  background: #0d1117;
+
+  > div {
+    min-width: max-content;
+    margin: 0;
+    border-radius: 0;
+  }
+
+  pre {
+    margin: 0;
+    padding: $spacingMedium;
+    font-family: $fontMono;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+}
+
+.status,
+.error {
+  padding: $spacingMedium;
+  color: $colorMuted;
+}
+
+.error {
+  color: $colorError;
+}

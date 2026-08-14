@@ -1,0 +1,224 @@
+@use "../../../styles/tokens" as *;
+
+.graphToolbar {
+  position: relative;
+  z-index: 6;
+  display: flex;
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: $spacingSmall;
+  padding: $spacingSmall;
+  border-bottom: 1px solid $colorBorder;
+  background: rgb(17 28 46 / 96%);
+  box-shadow: $shadowSmall;
+
+  button,
+  input,
+  select,
+  summary {
+    color: $colorText;
+    font: inherit;
+  }
+
+  button {
+    min-height: 34px;
+    padding: 0 11px;
+    border: 1px solid $colorBorder;
+    border-radius: $radiusSmall;
+    background: $colorCanvas;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      border-color: $colorAccent;
+      color: $colorAccent;
+    }
+
+    &:disabled {
+      opacity: 0.45;
+      cursor: default;
+    }
+  }
+
+  .searchControl {
+    display: flex;
+    flex: 1 1 180px;
+    min-width: 140px;
+    align-items: center;
+    gap: 6px;
+    min-height: 34px;
+    padding: 0 9px;
+    border: 1px solid $colorBorder;
+    border-radius: $radiusSmall;
+    background: $colorCanvas;
+
+    &:focus-within {
+      border-color: $colorAccent;
+    }
+
+    span {
+      color: $colorMuted;
+      font-size: 18px;
+    }
+
+    input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      background: transparent;
+      font-size: 12px;
+
+      &::placeholder {
+        color: $colorMuted;
+      }
+    }
+  }
+
+  .typeControl {
+    position: relative;
+
+    summary {
+      display: flex;
+      min-height: 34px;
+      align-items: center;
+      gap: 7px;
+      padding: 0 10px;
+      border: 1px solid $colorBorder;
+      border-radius: $radiusSmall;
+      background: $colorCanvas;
+      font-size: 12px;
+      cursor: pointer;
+      list-style: none;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      span {
+        color: $colorAccent;
+        font-family: $fontMono;
+        font-size: 10px;
+      }
+    }
+
+    &[open] summary {
+      border-color: $colorAccent;
+    }
+
+    fieldset {
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      display: flex;
+      width: min(300px, 80vw);
+      max-height: 320px;
+      flex-direction: column;
+      gap: 2px;
+      margin: 0;
+      padding: $spacingSmall;
+      overflow: auto;
+      border: 1px solid $colorBorder;
+      border-radius: $radiusMedium;
+      background: $colorSurface;
+      box-shadow: $shadowSmall;
+
+      legend {
+        padding: 0 4px;
+        color: $colorMuted;
+        font-size: 11px;
+      }
+
+      .typeMenuHeader {
+        position: sticky;
+        z-index: 1;
+        top: -$spacingSmall;
+        display: flex;
+        gap: $spacingSmall;
+        padding: $spacingSmall 0;
+        background: $colorSurface;
+
+        input {
+          min-width: 0;
+          flex: 1 1 auto;
+          padding: 0 8px;
+          border: 1px solid $colorBorder;
+          border-radius: $radiusSmall;
+          outline: 0;
+          background: $colorCanvas;
+          font-size: 11px;
+
+          &:focus {
+            border-color: $colorAccent;
+          }
+        }
+
+        button {
+          flex: 0 0 auto;
+          min-height: 30px;
+          padding: 0 8px;
+          font-size: 10px;
+        }
+      }
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: $spacingSmall;
+        padding: 6px;
+        border-radius: $radiusSmall;
+        font-family: $fontMono;
+        font-size: 11px;
+        cursor: pointer;
+
+        &:hover {
+          background: $colorFileSurface;
+        }
+
+        span {
+          min-width: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+
+        strong {
+          margin-left: auto;
+          color: $colorMuted;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .fileControl {
+    display: flex;
+    min-height: 34px;
+    align-items: center;
+    gap: 6px;
+    padding: 0 8px;
+    border: 1px solid $colorBorder;
+    border-radius: $radiusSmall;
+    background: $colorCanvas;
+
+    > span {
+      color: $colorMuted;
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    select {
+      max-width: 150px;
+      border: 0;
+      outline: 0;
+      background: $colorCanvas;
+      font-size: 12px;
+    }
+  }
+
+  .nodeCount {
+    margin-left: auto;
+    color: $colorMuted;
+    font-family: $fontMono;
+    font-size: 10px;
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,149 @@
+@use "../../../styles/tokens" as *;
+
+.fileExplorer {
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: $colorBorder transparent;
+  color: $colorText;
+  background: $colorSurface;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 3px solid transparent;
+    border-radius: $radiusLarge;
+    background: $colorBorder;
+    background-clip: content-box;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $colorMuted;
+    background-clip: content-box;
+  }
+
+  header {
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $spacingMedium;
+    border-bottom: 1px solid $colorBorder;
+    background: $colorSurface;
+
+    span {
+      color: $colorMuted;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    button {
+      border: 0;
+      color: $colorMuted;
+      background: transparent;
+      font-size: 11px;
+      cursor: pointer;
+    }
+  }
+
+  button {
+    color: inherit;
+    font: inherit;
+  }
+}
+
+.root,
+.file {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  gap: 7px;
+  padding: 7px $spacingSmall;
+  border: 0;
+  color: $colorText;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover {
+    background: rgb(121 168 255 / 8%);
+  }
+}
+
+.root {
+  position: sticky;
+  z-index: 1;
+  top: 48px;
+  padding-left: $spacingMedium;
+  background: $colorSurface;
+}
+.selected {
+  color: $colorAccent;
+  background: rgb(98 214 200 / 12%);
+}
+.optionalFile:not(.selected) {
+  color: $colorMuted;
+  opacity: 0.62;
+}
+.tree {
+  padding: $spacingExtraSmall $spacingSmall $spacingMedium;
+}
+.directory {
+  margin-left: $spacingSmall;
+}
+.directory > summary {
+  padding: 6px 4px;
+  color: $colorMuted;
+  font-size: 14px;
+  cursor: pointer;
+  list-style: none;
+}
+.directory > summary span {
+  display: inline-block;
+  margin-right: 6px;
+  transition: transform 120ms ease;
+}
+.directory[open] > summary span {
+  transform: rotate(90deg);
+}
+.directory > div {
+  margin-left: $spacingSmall;
+  border-left: 1px solid rgb(40 57 81 / 60%);
+}
+.file {
+  padding-left: $spacingSmall;
+  font-family: $fontMono;
+  font-size: 11px;
+}
+.file > span:nth-child(2) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.extension {
+  flex: 0 0 auto;
+  color: $colorFile;
+  font-size: 9px;
+  font-weight: 700;
+}
+.file_name {
+  font-size: 14px;
+}
+.entry {
+  margin-left: auto;
+  color: $colorAccent;
+  font-size: 8px;
+}
+.diagnostic {
+  margin-left: auto;
+  color: $colorError;
+}

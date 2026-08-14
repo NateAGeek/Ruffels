@@ -1,9 +1,8 @@
 export { SourceExplorer, SourceExplorerRender } from "./SourceExplorer";
 
-export type { SourceExplorerProps, SourceExplorerRenderProps } from "./SourceExplorer";
+export type { SourceExplorerRenderProps } from "./SourceExplorer";
+export type { AstType } from "./AstType";
 export type {
-  AnalysisError,
-  AnalyzeSourceResponse,
   SourceDiagnostic,
   SourceEdge,
   SourceGraph,

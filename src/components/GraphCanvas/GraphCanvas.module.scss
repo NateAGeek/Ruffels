@@ -1,4 +1,4 @@
-@use "../../../styles/tokens" as *;
+@use "../../styles/tokens" as *;
 
 .graphCanvas {
   position: relative;
@@ -66,13 +66,46 @@
       outline-offset: 3px;
     }
   }
+
+  :global(.react-flow__node.dragging) {
+    article {
+      cursor: grabbing;
+    }
+  }
 }
 
 .flowCanvas {
-  position: relative;
+  display: flex;
   width: 100%;
   height: 100%;
+  min-height: 0;
+  flex-direction: column;
   background: $colorCanvas;
+}
+
+.graphViewport {
+  position: relative;
+  min-height: 0;
+  flex: 1 1 auto;
+}
+
+.showExplorerButton {
+  position: absolute;
+  z-index: 5;
+  top: $spacingSmall;
+  left: $spacingSmall;
+  padding: 6px 9px;
+  border: 1px solid $colorBorder;
+  border-radius: $radiusSmall;
+  color: $colorText;
+  background: $colorSurface;
+  font-size: 12px;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $colorAccent;
+    color: $colorAccent;
+  }
 }
 
 .preparingCanvas {

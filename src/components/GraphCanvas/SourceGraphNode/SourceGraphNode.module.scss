@@ -1,0 +1,194 @@
+@use "../../../styles/tokens" as *;
+
+.sourceGraphNode {
+  box-sizing: border-box;
+  width: 224px;
+  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+  padding: $spacingSmall $spacingMedium;
+  border: 1px solid $colorBorder;
+  border-radius: $radiusMedium;
+  color: $colorText;
+  background: $colorSurface;
+  box-shadow: $shadowSmall;
+  cursor: grab;
+
+  .astType {
+    color: $colorMuted;
+    font-family: $fontMono;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .label {
+    overflow: hidden;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .details {
+    color: $colorMuted;
+    font-size: 11px;
+  }
+}
+
+.file {
+  border-color: $colorFile;
+  background: $colorFileSurface;
+}
+
+.component {
+  border-color: $colorComponent;
+  background: $colorComponentSurface;
+}
+
+.jsx {
+  border-color: $colorJsx;
+  background: $colorJsxSurface;
+}
+
+.renderExpression {
+  border-color: $colorExpression;
+  background: $colorExpressionSurface;
+}
+
+.invocation {
+  border-color: $colorMuted;
+  background: rgb(143 160 184 / 10%);
+}
+
+.declaration {
+  border-color: $colorDeclaration;
+}
+
+.type {
+  gap: 6px;
+  overflow: hidden;
+
+  .typeHeader {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    justify-content: space-between;
+    gap: $spacingSmall;
+
+    .typeKind {
+      flex: 0 0 auto;
+      padding: 2px 7px;
+      border-radius: 999px;
+      font-family: $fontMono;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+
+    .astType {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .typeSignature {
+    display: grid;
+    grid-template-columns: minmax(0, auto) auto minmax(0, 1fr);
+    gap: 6px;
+    align-items: baseline;
+    font-family: $fontMono;
+  }
+
+  .typeName {
+    overflow: hidden;
+    color: $colorAccent;
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .typeSeparator {
+    color: $colorMuted;
+    font-weight: 700;
+  }
+
+  .typeValue {
+    display: -webkit-box;
+    overflow: hidden;
+    color: $colorText;
+    font-family: inherit;
+    font-size: 12px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+}
+
+.declaredType {
+  width: 360px;
+  min-height: 108px;
+  border: 1px solid rgb(168 114 255 / 72%);
+  border-left-width: 4px;
+  background: linear-gradient(135deg, rgb(57 35 91 / 96%), rgb(20 31 55 / 96%));
+  box-shadow: 0 8px 24px rgb(5 8 20 / 32%);
+
+  .typeKind {
+    color: rgb(224 207 255);
+    background: rgb(168 114 255 / 18%);
+  }
+
+  .typeName {
+    color: rgb(205 174 255);
+    font-size: 15px;
+  }
+}
+
+.compoundType {
+  width: 300px;
+  min-height: 88px;
+  border-color: rgb(235 173 78 / 68%);
+  background: linear-gradient(135deg, rgb(67 47 24 / 92%), rgb(20 31 55 / 96%));
+
+  .typeKind {
+    color: rgb(255 218 158);
+    background: rgb(235 173 78 / 16%);
+  }
+
+  .typeName {
+    color: rgb(247 192 104);
+  }
+}
+
+.primitiveType {
+  width: 224px;
+  min-height: 76px;
+  border-color: rgb(69 208 184 / 68%);
+  border-radius: $radiusLarge;
+  background: linear-gradient(135deg, rgb(20 65 66 / 92%), rgb(18 34 53 / 96%));
+
+  .typeKind {
+    color: rgb(164 245 226);
+    background: rgb(69 208 184 / 16%);
+  }
+
+  .typeName {
+    color: rgb(103 226 204);
+    font-size: 12px;
+  }
+
+  .typeValue {
+    font-size: 14px;
+    font-weight: 700;
+  }
+}
+
+.externalDependency {
+  border-style: dashed;
+  border-color: $colorMuted;
+}

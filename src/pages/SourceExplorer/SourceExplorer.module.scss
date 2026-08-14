@@ -8,8 +8,7 @@
   gap: $spacingLarge;
   padding: $spacingMedium;
   background:
-    radial-gradient(circle at 12% 0%, rgb(79 209 161 / 10%), transparent 30%),
-    $colorBackground;
+    radial-gradient(circle at 12% 0%, rgb(79 209 161 / 10%), transparent 30%), $colorBackground;
 
   .header {
     @include flexColumn;
@@ -46,7 +45,9 @@
     background: $colorAccent;
     font-weight: 700;
     cursor: pointer;
-    transition: background 140ms ease, transform 140ms ease;
+    transition:
+      background 140ms ease,
+      transform 140ms ease;
 
     &:hover:not(:disabled) {
       background: $colorAccentStrong;
@@ -61,6 +62,30 @@
     &:disabled {
       cursor: wait;
       opacity: 0.65;
+    }
+  }
+
+  .headerActions,
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: $spacingSmall;
+  }
+
+  .secondaryButton {
+    padding: 9px $spacingMedium;
+    border: 1px solid $colorBorder;
+    border-radius: $radiusMedium;
+    color: $colorText;
+    background: $colorSurface;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      border-color: $colorAccent;
+    }
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
     }
   }
 
@@ -84,6 +109,79 @@
     p {
       margin: 0;
     }
+  }
+
+  .projectLanding {
+    display: grid;
+    gap: $spacingLarge;
+  }
+
+  .initialization,
+  .recents {
+    padding: $spacingLarge;
+    border: 1px solid $colorBorder;
+    border-radius: $radiusLarge;
+    background: $colorSurface;
+
+    h2 {
+      margin-top: 0;
+    }
+  }
+
+  .initialization {
+    dl div {
+      margin-bottom: $spacingMedium;
+    }
+    dt {
+      color: $colorMuted;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+    dd {
+      margin: $spacingExtraSmall 0 0;
+      font-family: $fontMono;
+    }
+  }
+
+  .recents ul {
+    display: grid;
+    gap: $spacingSmall;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .recents li {
+    display: flex;
+    align-items: stretch;
+    gap: $spacingSmall;
+  }
+  .recents li > button:first-child {
+    display: flex;
+    flex: 1;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: $spacingSmall $spacingMedium;
+    border: 1px solid $colorBorder;
+    border-radius: $radiusMedium;
+    color: $colorText;
+    background: transparent;
+    cursor: pointer;
+    span {
+      max-width: 100%;
+      overflow: hidden;
+      color: $colorMuted;
+      font-family: $fontMono;
+      font-size: 11px;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+  .recents li > button:last-child {
+    border: 0;
+    color: $colorMuted;
+    background: transparent;
+    cursor: pointer;
   }
 
   .emptyGlyph {

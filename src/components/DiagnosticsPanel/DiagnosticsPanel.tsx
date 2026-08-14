@@ -1,4 +1,4 @@
-import type { SourceDiagnostic } from "../SourceExplorer.types";
+import type { SourceDiagnostic } from "../../pages/SourceExplorer/SourceExplorer.types";
 import styles from "./DiagnosticsPanel.module.scss";
 
 export interface DiagnosticsPanelProps {
@@ -6,7 +6,9 @@ export interface DiagnosticsPanelProps {
   readonly diagnostics: ReadonlyArray<SourceDiagnostic>;
 }
 
-export function DiagnosticsPanel({ diagnostics }: DiagnosticsPanelProps): React.ReactElement | null {
+export function DiagnosticsPanel({
+  diagnostics,
+}: DiagnosticsPanelProps): React.ReactElement | null {
   if (diagnostics.length === 0) {
     return null;
   }
@@ -16,9 +18,12 @@ export function DiagnosticsPanel({ diagnostics }: DiagnosticsPanelProps): React.
       <h2>Parser diagnostics</h2>
       <ul>
         {diagnostics.map((diagnostic, diagnosticIndex) => (
-          <li key={`${diagnostic.span.startLine}:${diagnostic.span.startColumn}:${diagnosticIndex}`}>
+          <li
+            key={`${diagnostic.span.startLine}:${diagnostic.span.startColumn}:${diagnosticIndex}`}
+          >
             <span>
-              L{diagnostic.span.startLine}:{diagnostic.span.startColumn}
+              {diagnostic.sourcePath !== undefined && `${diagnostic.sourcePath} · `}L
+              {diagnostic.span.startLine}:{diagnostic.span.startColumn}
             </span>
             {diagnostic.message}
           </li>

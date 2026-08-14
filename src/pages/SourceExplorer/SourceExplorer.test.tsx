@@ -1,29 +1,37 @@
 import { render, screen } from "@testing-library/react";
-import { SourceExplorerRender } from "./SourceExplorer";
+import { SourceExplorerRender, type SourceExplorerRenderProps } from "./SourceExplorer";
+
+const actions: Omit<SourceExplorerRenderProps, "state"> = {
+  selectProject: jest.fn(),
+  confirmInitialization: jest.fn(),
+  cancelInitialization: jest.fn(),
+  openRecentProject: jest.fn(),
+  forgetRecentProject: jest.fn(),
+  reindexProject: jest.fn(),
+  includeProjectFile: jest.fn(),
+  closeProject: jest.fn(),
+};
 
 describe("SourceExplorerRender", () => {
-  it("should invite the user to select a source file", () => {
-    render(<SourceExplorerRender state={{ type: "idle" }} onSelectSourceFile={jest.fn()} />);
-
-    expect(screen.getByRole("heading", { name: "Select a source file" })).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: "Open TS or TSX" })).toBeEnabled();
+  it("invites the user to select a project", () => {
+    render(<SourceExplorerRender {...actions} state={{ type: "idle", recents: [] }} />);
+    expect(screen.getByRole("heading", { name: "Select a project folder" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Open project" })).toBeEnabled();
   });
 
-  it("should disable selection and announce parsing while loading", () => {
-    render(<SourceExplorerRender state={{ type: "loading" }} onSelectSourceFile={jest.fn()} />);
-
-    expect(screen.getByRole("button", { name: "Analyzing…" })).toBeDisabled();
-    expect(screen.getByRole("status")).toHaveTextContent("building its typed graph");
+  it("announces indexing", () => {
+    render(<SourceExplorerRender {...actions} state={{ type: "indexing", projectName: "demo" }} />);
+    expect(screen.getByRole("status")).toHaveTextContent("Indexing demo");
+    expect(screen.getByRole("button", { name: "Open project" })).toBeDisabled();
   });
 
-  it("should display typed analysis errors", () => {
+  it("displays typed project errors", () => {
     render(
       <SourceExplorerRender
-        state={{ type: "error", error: { type: "invalidExtension" } }}
-        onSelectSourceFile={jest.fn()}
+        {...actions}
+        state={{ type: "error", error: { type: "noEntryPoints" }, recents: [] }}
       />,
     );
-
-    expect(screen.getByRole("alert")).toHaveTextContent("Choose a TypeScript or TSX file");
+    expect(screen.getByRole("alert")).toHaveTextContent("No TypeScript entry points");
   });
 });
