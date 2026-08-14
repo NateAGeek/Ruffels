@@ -2,6 +2,8 @@
 
 Ruffles is a local TypeScript and TSX structure explorer. Select a source file to parse it with SWC in the Tauri backend, then inspect its typed declaration or JSX render tree in the React Flow canvas.
 
+<img width="1475" height="803" alt="image" src="https://github.com/user-attachments/assets/baac803a-7915-48ba-a8de-325f5d7a9f2f" />
+
 ## Development
 
 ```sh
